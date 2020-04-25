@@ -1,0 +1,44 @@
+.signature {
+  &-creator {
+    position: fixed;
+    width: 200px;
+    height: 100px;
+    top: calc(50vh - 50px);
+    left: calc(50vw - 100px);
+    z-index: 10001;
+    resize: both;
+
+    &-toolbar {
+      padding: 8px;
+      width: calc(100% - 16px);
+      background-color: black;
+      color: #2ed573;
+      opacity: .5;
+      
+      &:hover {
+        opacity: 1;
+      }
+
+      b {
+        cursor: pointer;
+        text-decoration: underline;
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    &-content {
+      padding: 16px;
+      font-size: 16px;
+      color: black;
+      border: 2px dotted black;
+      width: calc(100% - 36px);
+      height: calc(100% - 38px - 35px);
+
+      display: inline-flex;
+      place-content: flex-start;
+      place-items: flex-end;
+    }
+  }
+}

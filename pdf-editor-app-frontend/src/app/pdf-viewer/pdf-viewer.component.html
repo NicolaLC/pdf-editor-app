@@ -1,0 +1,49 @@
+<app-pdf-signature-creator
+  *ngIf="selectedSignature"
+  [signature]="selectedSignature"
+  (apply)="applySignature($event)"
+  (cancel)="selectSignature(null)"
+></app-pdf-signature-creator>
+<ngx-extended-pdf-viewer
+  *ngIf=base64
+  [base64Src]="base64"
+  [(pageLabel)]="restorePage"
+  [customToolbar]="additionalButtons"
+  (pageChange)="setCurrentPage($event)"
+  useBrowserLocale="true"
+  height="100vh">
+</ngx-extended-pdf-viewer>
+<ng-template #additionalButtons>
+  <div id="toolbarViewer" style="background-color:#4a4a4a">
+    <div id="toolbarViewerLeft">
+      <pdf-toggle-sidebar></pdf-toggle-sidebar>
+      <div class="toolbarButtonSpacer"></div>
+      <pdf-find-button [showFindButton]="true" [textLayer]="true"></pdf-find-button>
+      <pdf-paging-area></pdf-paging-area>
+      <button type="button"
+        class="toolbarButton"
+        title="Aggiungi firma"
+        style="background-image: url('assets/pen.png');"
+        (click)="toggleSignatureSelector()">
+      </button>
+    </div>
+    <div id="toolbarViewerRight">
+      <pdf-open-file></pdf-open-file>
+      <pdf-presentation-mode></pdf-presentation-mode>
+      <pdf-print></pdf-print>
+      <pdf-download></pdf-download>
+      <pdf-bookmark></pdf-bookmark>
+      <div class="verticalToolbarSeparator hiddenSmallView"></div>
+      <pdf-toggle-secondary-toolbar></pdf-toggle-secondary-toolbar>
+    </div>
+    <pdf-zoom-toolbar ></pdf-zoom-toolbar>
+  </div>
+</ng-template>
+<div class="signature-selector" [class.hidden]="!showSignatureSelector">
+  <ul>
+    <li *ngFor="let signature of signatures" (click)="selectSignature(signature)">
+      <img src="assets/pen.png" />
+      {{signature | signatureToString}}
+    </li>
+  </ul>
+</div>

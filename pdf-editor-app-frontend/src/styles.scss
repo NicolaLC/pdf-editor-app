@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  margin: 0;
+  padding: 0;
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    .hidden {
+      display: none;
+      visibility: hidden;
+    }
+
+    .toolbarButton {
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .signature {
+      &-selector {
+        position: fixed;
+        top: 40px;
+        left: 263px;
+        background-color: #4a4a4a;
+        color: #FFF;
+        padding: 8px 16px;
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li {
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 15px 1fr;
+            column-gap: 1rem;
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            img {
+              width: 15px;
+              height: auto;
+            }
+          }
+        }
+
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: -5px;
+          width: 0; 
+          height: 0; 
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid #4a4a4a;
+        }
+      }
+    }
+  }
+}
