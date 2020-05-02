@@ -1,13 +1,6 @@
-export class Signature {
-  private _name: string;
-  private _surname: string;
+import { rgb } from 'pdf-lib';
 
-  constructor(name: string, surname: string) {
-    this._name = name;
-    this._surname = surname;
-  }
-
-  public toString():string {
-    return `${this._name} ${this._surname}`;
-  }
+export interface Signature {
+  name: string;
+  surname: string;
 }

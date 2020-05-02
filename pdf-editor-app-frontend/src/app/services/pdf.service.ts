@@ -36,7 +36,7 @@ export class PdfService {
         }
       )
 
-      page.drawText(signature.toString(),
+      page.drawText(`${signature.surname} ${signature.name}`,
         { 
           x: relativeBoundaries.x + 10.25, 
           y: relativeBoundaries.y + 10.5, 
@@ -48,7 +48,6 @@ export class PdfService {
   }
 
   relativeBoundaries(ofRect: DOMRect, pdfPageRect: DOMRect, pageWidth: number, pageHeight: number): DOMRect {
-
     const result: DOMRect = ofRect;
     const {x: xOf, y: yOf, width: wOf, height: hOf} = ofRect;
     const {left: xPage, top: yPage, width: wPage, height: hPage} = pdfPageRect;

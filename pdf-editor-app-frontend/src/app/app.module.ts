@@ -7,7 +7,7 @@ import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfSignatureCreatorComponent } from './pdf-signature-creator/pdf-signature-creator.component';
 import { SignatureToStringPipe } from './pipes/signature-to-string.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,8 @@ import { SignatureToStringPipe } from './pipes/signature-to-string.pipe';
     BrowserModule,
     AppRoutingModule,
     NgxExtendedPdfViewerModule,
-    AngularDraggableModule
+    AngularDraggableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

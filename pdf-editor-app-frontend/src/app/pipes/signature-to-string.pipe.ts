@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SignatureToStringPipe implements PipeTransform {
 
   transform(value: Signature): unknown {
-    return value.toString();
+    return `${value.surname} ${value.name}`;
   }
 
 }
