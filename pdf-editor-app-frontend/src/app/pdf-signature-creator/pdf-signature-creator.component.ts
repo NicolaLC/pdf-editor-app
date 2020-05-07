@@ -1,3 +1,4 @@
+import { Signature } from './../models/signature';
 import { Component, OnInit, Input, EventEmitter, Output, ElementRef } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output, ElementRef } from '@ang
 })
 export class PdfSignatureCreatorComponent {
 
-  @Input() signature: string;
+  @Input() signature: Signature;
 
   @Output() apply: EventEmitter<{rect:Partial<DOMRect>}> = new EventEmitter();
   @Output() cancel: EventEmitter<null> = new EventEmitter();
